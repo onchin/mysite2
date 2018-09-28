@@ -73,7 +73,7 @@ MIDDLEWARE = [
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whotenoise/
-    'whitenoise.middleware.WhiteNoiseMiddeleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddeleware',
 ]
 
 ROOT_URLCONF = 'mysite2.urls'
