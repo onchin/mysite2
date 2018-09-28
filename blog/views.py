@@ -6,17 +6,10 @@ from .forms import EmailPostForm
 from django.core.mail import send_mail
 
 
-class PostListView(ListView):
-    queryset = Post.published.all()
-    context_object_name = 'posts'
-    paginate_by = 3
-    template_name = 'blog/post/list.html'
-
-
 def post_list(request):
     post = Post.published.all()
-    object_list = Post.published.all()
-    paginator = Paginator(object_list, 3)  # 3 posts in each page
+    # object_list = Post.published.all()
+    paginator = Paginator(post, 3)  # 3 posts in each page
     page = request.GET.get('page')
     try:
         post = paginator.page(page)
@@ -41,6 +34,13 @@ def post_detail(request, year, month, day, post):
     return render(request,
                   'blog/post/detail.html',
                   {'post': post})
+
+
+class PostListView(ListView):
+    queryset = Post.published.all()
+    context_object_name = 'posts'
+    paginate_by = 3
+    template_name = 'blog/post/list.html'
 
 
 def post_share(request, post_id):
