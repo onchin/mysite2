@@ -141,14 +141,13 @@ STATIC_URL = '/static/'
 # os.makedirs(STATIC_ROOT, exist_ok=True)
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    '/var/www/static/',
-)
+    # '/var/www/static/',
+]
 
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitehouse/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
